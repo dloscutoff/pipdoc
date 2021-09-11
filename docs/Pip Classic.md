@@ -20,6 +20,8 @@ Note: "lhs" = left-hand side argument of an operator and "rhs" = right-hand side
 - The Else branch of an If statement begins with `E`, not `EL`.
 - For loops do not support destructuring assignment. Switching to a functional programming approach will usually be shorter anyway: `F[ab]lPaRb'_` -> `P{aRb'_}MUl` with the appropriate list-formatting flag.
 - The [Unify statement](https://github.com/dloscutoff/pip/blob/2355d3c383c69b35539c44a640a7bdc5c2dbab14/Documentation/Commands.md#unify) exists.
+- Arbitrary-length variable names starting with `$` are not supported.
+- There is no block comment syntax.
 
 ## Missing operators
 
@@ -66,3 +68,4 @@ Note: "lhs" = left-hand side argument of an operator and "rhs" = right-hand side
 - `<` returns 1 when given two Lists that are equal. Swap the arguments and use `>` instead.
 - `#` and the length-comparison operators crash the interpreter when given infinite Ranges. Try to avoid taking the length of infinite Ranges. If you need to test the upper bound of a Range, use `MX`.
 - Iterating over an infinite Range with a lower bound of nil crashes the interpreter. Use a lower bound of 0 instead.
+- Indexing into an empty iterable and then attempting to assign a value to that expression crashes the interpreter. Make sure iterables are nonempty before attempting to assign to their items.
