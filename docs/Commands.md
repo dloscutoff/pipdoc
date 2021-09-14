@@ -69,14 +69,6 @@ Since both the if and else branches may drop the curly braces if they contain si
 
 ## Other commands
 
-### Swap statement
-
-    Sab
-
-    swap values of a, b
-
-`a` and `b` can be any two expressions as long as they evaluate to lvalues. For instance, `Sx@0x@1` will swap the first two items in an iterable `x`.
-
 ### Wipe globals
 
     WG

@@ -19,25 +19,34 @@ Note: "lhs" = left-hand side argument of an operator and "rhs" = right-hand side
 
 - The Else branch of an If statement begins with `E`, not `EL`.
 - For loops do not support destructuring assignment. Switching to a functional programming approach will usually be shorter anyway: `F[ab]lPaRb'_` -> `P{aRb'_}MUl` with the appropriate list-formatting flag.
-- The [Unify statement](https://github.com/dloscutoff/pip/blob/2355d3c383c69b35539c44a640a7bdc5c2dbab14/Documentation/Commands.md#unify) exists.
+- The [Swap](https://github.com/dloscutoff/pip/blob/2355d3c383c69b35539c44a640a7bdc5c2dbab14/Documentation/Commands.md#swap-statement) and [Unify](https://github.com/dloscutoff/pip/blob/2355d3c383c69b35539c44a640a7bdc5c2dbab14/Documentation/Commands.md#unify) statements exist.
 - Arbitrary-length variable names starting with `$` are not supported.
 - There is no block comment syntax.
+
+## Data types
+
+- The str/repr of a Block is a stringified Python list representing a parse tree (with the outer `[]` delimiters changed to `{}`) rather than a string that evaluates to the same Block. Don't use the str or repr of a Block for anything except debugging purposes.
 
 ## Missing operators
 
 - Unary `%`. Mod by 2 explicitly: `%a` -> `a%2`.
 - Unary `**`. Raise 2 to the power explicitly: `**a` -> `2**a`.
+- `::` (binary). Use the swap command instead: `a::b` -> `Sab`.
 - Unary `<>`. Group into size-2 chunks explicitly: `<>a` -> `a<>2`.
 - `\?` (ternary), `\|` and `\&` (binary), and `\!` (unary). Use a curly-brace function instead of a lambda, or look for another way to express the formula: `_\|'x` -> `{a|'x}`; `\!_` -> `_=0` if the argument is guaranteed to be a number.
 - `AD` (binary). Subtract and take the absolute value instead: `aADb` -> `AB(a-b)`.
 - `D` (unary). Use `--` instead, but note the slight difference in precedence: `Da` -> `--a`; `Da@<2` -> `--(a@<2)`.
+- `DB` (unary). Multiply by 2 explicitly: `DBa` -> `a*2`.
 - `E` (unary and binary). Use `**` instead: `Ea` -> `2**a`; `aEb` -> `a**b`.
 - `EE` (unary and binary). Use the full formula instead: `EEa` -> `10**a`; `aEEb` -> `a*10**b`.
 - `FD` (unary and binary). Use `FB` or roll your own base-conversion: `aFDb` -> `$+a*b**RV,#a`, or `(Ja)FBb` if `b` is 36 or less and all digits are less than 10.
 - Unary `FI`. Filter by the identity function instead: `FIa` -> `_FIa`.
+- `H` (unary and binary). Use `@<` instead, but note the difference in precedence: `Ha` -> `@<a`; `aHb` -> `a@<b`; `a.bHc-2` -> `(a.b)@<(c-2)`.
+- `HV` (unary). Divide by 2 explicitly: `HVa` -> `a//2`, or `a/2` if `a` is known to be an even number.
 - `OG` (unary and binary). Use one of `ZG`, `MC`, or `CG` instead: `OGa` -> `1+ZGa` or `1MCa`; `aOGb` -> `1+(aZGb)` or `1MMaCGb`.
 - `RE` (unary). Use an explicit function call instead: `REa` -> `(fa)`.
 - Unary `R`. Use `RV` instead: `Ra` -> `RVa`.
+- `S` (unary and binary). Use `@>` instead (with a negated second argument if binary), but note the difference in precedence: `Sa` -> `@>a`; `aSb` -> `a@>-b`; `a.bSc-2` -> `(a.b)@>(2-c)`.
 - `SQ` (unary). Multiply the number by itself or use `**` instead: `SQa` -> `a*a` or `a**2`.
 - `TD` (unary and binary). Use `TB` or roll your own base-conversion: `aTDb` -> `^aTBb` if `b` is 10 or less.
 - `U` (unary). Use `++` instead, but note the slight difference in precedence: `Ua` -> `++a`; `Ua@<2` -> `++(a@<2)`.
@@ -69,3 +78,5 @@ Note: "lhs" = left-hand side argument of an operator and "rhs" = right-hand side
 - `#` and the length-comparison operators crash the interpreter when given infinite Ranges. Try to avoid taking the length of infinite Ranges. If you need to test the upper bound of a Range, use `MX`.
 - Iterating over an infinite Range with a lower bound of nil crashes the interpreter. Use a lower bound of 0 instead.
 - Indexing into an empty iterable and then attempting to assign a value to that expression crashes the interpreter. Make sure iterables are nonempty before attempting to assign to their items.
+- Indexing into a variable whose value is a Range gives nil. Convert to a List first (e.g. by multiplying by 1) or use math instead of indexing into a Range.
+- Applying an operator with the `*` meta-operator to a Block crashes the interpreter. Use a curly-brace delimited function instead of a lambda function, or find a way not to use the meta-operator: `A*_` -> `{A*a}` or possibly `A^_`.

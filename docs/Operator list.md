@@ -73,6 +73,8 @@ The following operators change the way other operators are used, when applied on
 
 <code>a:b</code> Assign `b` to `a`; if `a` is a list of lvalues, pair them with values from `b` and assign one by one (destructuring assignment)
 
+<code>a::b</code> Swap values of `a` and `b` (supports destructuring assignment); expression evaluates to (new value of) `a`
+
 <code>a&lt;b</code> Numeric less than
 
 <code>a&lt;=b</code> Numeric less than or equal
@@ -155,6 +157,8 @@ The following operators change the way other operators are used, when applied on
 
 <code id="dec">Da</code> Decrement (modifying argument in-place)
 
+<code>DBa</code> Double: `a` times 2
+
 <code>aDCb</code> Delete all occurrences of characters in Scalar `b` from Scalar `a`
 
 <code>DGa</code> Convert radians to degrees
@@ -190,6 +194,12 @@ The following operators change the way other operators are used, when applied on
 <code>aGTb</code> String greater than
 
 <code>aGEb</code> String greater than or equal
+
+<code>aHb</code> Get prefix of `a` that is `b` elements long (mnemonic: **H**ead); with negative `b`, get prefix of length len(`a`)+`b`
+
+<code>Ha</code> Get prefix of `a` containing all but the last element of `a`
+
+<code>HVa</code> Halve: `a` integer-divided by 2
 
 <code>aJb</code> Join iterable on separator
 
@@ -294,6 +304,10 @@ The following operators change the way other operators are used, when applied on
 <code>RTa</code> Square root of `a`
 
 <code>RVa</code> Alias for [unary `R`](#reverse)
+
+<code>aSb</code> Get suffix of `a` that is `b` elements long; with negative `b`, get suffix of length len(`a`)+`b`
+
+<code>Sa</code> Get suffix of `a` containing all but the first element of `a`
 
 <code>SCa</code> Swap case: `Hello, World!` becomes `hELLO, wORLD!`
 

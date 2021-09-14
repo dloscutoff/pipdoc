@@ -13,13 +13,13 @@ Some of these may link to questions on [Code Golf Stack Exchange](https://codego
 
 ## GCD (Greatest Common Divisor) of two numbers
 
-    Wb%:aSaba
+    Wb%:aa::ba
 
 #### Explanation:
 
-    Wb%:a      Assign b%a to b and loop while nonzero:
-         Sab    Swap a and b
-            a  After the loop, print a
+    Wb%:a       Assign b%a to b and loop while nonzero:
+         a::b    Swap a and b
+             a  After the loop, print a
 
 ## [Quine](https://en.wikipedia.org/wiki/Quine_(computing))
 
@@ -31,7 +31,15 @@ Each of these approaches requires the code to end with a newline, since the outp
 
 ## First _a_ Fibonacci numbers, starting with 1
 
-    La{Po+:xSox}
+    LaPi::o+:i
+
+#### Explanation:
+
+                 i is initially 0; o is 1
+    La           Loop (arg) times:
+          o+:i    Set o to o + i
+       i::        Swap values of i and o
+      P           Print new value of i
 
 ## Arithmetic mean of input
 
