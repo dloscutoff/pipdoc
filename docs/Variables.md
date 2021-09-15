@@ -42,8 +42,6 @@ Note: any sequence of two uppercase letters that isn't a command or an operator 
 
 `i` 0
 
-`j` TBD; currently initialized to nil
-
 `k` `", "`
 
 `l` Empty list
@@ -83,6 +81,10 @@ Note: any sequence of two uppercase letters that isn't a command or an operator 
 `PA` All **P**rintable **A**SCII characters, 32 through 126
 
 `PI` Pi (3.141592653589793)
+
+`VD` Date of the latest interpreter update in YYYY-MM-DD format
+
+`VN` Current version number in X.Y.Z format
 
 `VW` Lowercase vowels a to u
 
