@@ -67,6 +67,7 @@ Note: "lhs" = left-hand side argument of an operator and "rhs" = right-hand side
 
 - `p`: use `"()"` instead.
 - `G`: use `{g}` instead, or rework your lambda function using `_` and `B` if possible: `2*$+G` -> `{2*$+g}` or `2*$+{g}` or, if you know there will always be two arguments, `2*_+2*B`.
+- `VD` and `VN`: not supported, but not particularly useful for golf anyway.
 
 ## Bugs
 
