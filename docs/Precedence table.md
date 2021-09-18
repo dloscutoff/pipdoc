@@ -9,7 +9,12 @@ nav_order: 7
 
 For descriptions of each operator, see the [operator list](operators). For guaranteed up-to-date information, your best bet is to read the code: there's a reasonably human-readable precedence table in [operators.py](https://github.com/dloscutoff/pip/blob/master/operators.py).
 
-**Chaining** associativity means multiple comparisons can be strung together, like `x<y=z`. **Fold default** is the result of folding an empty iterable on this operator. **Itemwise** indicates whether the operator applies item-by-item to lists, both lists and ranges, or neither. **In lambda** indicates whether the operator can be applied to functions (typically starting from the identity function `_`) to build bigger functions.
+### Terminology
+
+- **Chaining** associativity means multiple comparisons can be strung together. For example, `x<y=z` isn't equivalent to either `(x<y)=z` (left-associative) or `x<(y=z)` (right-associative) but rather to `(x<y)&(y=z)`.
+- **Fold default** is the value returned when folding an empty iterable on this operator. For example, `$+[]` returns `0`, while `$*[]` returns `1`.
+- **Itemwise** indicates whether the operator applies item-by-item to lists, both lists and ranges, or neither.
+- **In lambda** indicates whether the operator can be applied to functions (typically starting from the identity function `_`) to build bigger functions.
 
 Category | Arity | Associativity | Symbol | Name | Fold default | Itemwise? | In lambda?
 -------- | ----- | ------------- | ------ | ---- | ------------ | --------- | ----------
