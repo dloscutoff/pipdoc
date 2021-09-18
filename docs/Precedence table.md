@@ -344,7 +344,7 @@ Symbol | Name   | Fold default | Itemwise? | In lambda?
 ------ | ------ | ------------ | --------- | ----------
 `X`    | Strmul | `""`         | Both      | Yes
 
-## Strip and trim
+## Strip, trim, and case conversion
 
 ### Binary (left-associative)
 
