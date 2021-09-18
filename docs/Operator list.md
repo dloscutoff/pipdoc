@@ -7,7 +7,7 @@ nav_order: 6
 
 # List of operators
 
-Operators are listed in ASCII order. See also: [precedence table](precedence). For guaranteed up-to-date information, your best bet is to read the code: there's a reasonably human-readable precedence table in [operators.py](https://github.com/dloscutoff/pip/blob/master/operators.py).
+Operators are listed in ASCII order. See also the [operator precedence chart](precedence).
 
 ### Meta-operators
 
