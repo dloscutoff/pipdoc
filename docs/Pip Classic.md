@@ -81,3 +81,4 @@ Note: "lhs" = left-hand side argument of an operator and "rhs" = right-hand side
 - Indexing into an empty iterable and then attempting to assign a value to that expression crashes the interpreter. Make sure iterables are nonempty before attempting to assign to their items.
 - Indexing into a variable whose value is a Range gives nil. Convert to a List first (e.g. by multiplying by 1) or use math instead of indexing into a Range.
 - Applying an operator with the `*` meta-operator to a Block crashes the interpreter. Use a curly-brace delimited function instead of a lambda function, or find a way not to use the meta-operator: `A*_` -> `{A*a}` or possibly `A^_`.
+- Weaving a List containing nil crashes the interpreter. If this ever becomes an issue, one potential workaround is to filter the List before weaving it: `WVl` -> `WV(#_FIl)`.
