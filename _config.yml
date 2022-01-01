@@ -45,7 +45,7 @@ color_scheme: dark
 button: true
 search.heading_level: 2
 
-footer_content: "Copyright &copy; 2015-2021 David Loscutoff. Distributed on Github."
+footer_content: "Copyright &copy; 2015-2022 David Loscutoff. Distributed on Github."
 
 # Exclude from processing.
 # The following items will not be processed, by default.
