@@ -25,9 +25,9 @@ baseurl: "/pipdoc" # the subpath of your site, e.g. /blog
 url: "https://dloscutoff.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username: dloscutoff
+remote_theme: pmarsceill/just-the-docs
 
 # Build settings
-theme: just-the-docs
 plugins:
   - jekyll-feed
 
