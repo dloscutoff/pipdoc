@@ -79,31 +79,36 @@ Symbol | Name     | Fold default | Itemwise? | In lambda?
 ------ | -------- | ------------ | --------- | ----------
 `==`   | Objequal | `1`          | No        | No
 
-## Recursion
+## Functional operators
 
 ### Unary
 
-Symbol | Name    | Itemwise? | In lambda?
------- | ------- | --------- | ----------
-`RE`   | Recurse | No        | No
-
-## Functional operators
+Symbol | Name      | Itemwise? | In lambda?
+------ | --------- | --------- | ----------
+`V`    | Eval      | No        | No
+`FI`   | Filter    | No        | No
+`FN`   | Filternot | No        | No
+`RE`   | Recurse   | No        | No
 
 ### Binary (right-associative)
 
-Symbol | Name         | Fold default | Itemwise? | In lambda?
------- | ------------ | ------------ | --------- | ----------
-`M`    | Map          | `[]`         | No        | No
-`MC`   | Mapcoords    | `[]`         | No        | No
-`ME`   | Mapenumerate | `[]`         | No        | No
-`MJ`   | Mapjoin      | `""`         | No        | No
-`MM`   | Mapmap       | `[]`         | No        | No
-`MP`   | Mappairs     | `[]`         | No        | No
-`MS`   | Mapsum       | `0`          | No        | No
-`MU`   | Mapunpack    | `[]`         | No        | No
-`FI`   | Filter       | `[]`         | No        | No
-`SK`   | Sortkeyed    | `[]`         | No        | No
-`V`    | Eval         | None         | No        | No
+Symbol | Name            | Fold default | Itemwise? | In lambda?
+------ | --------------- | ------------ | --------- | ----------
+`M`    | Map             | `[]`         | No        | No
+`MC`   | Mapcoords       | `[]`         | No        | No
+`ME`   | Mapenumerate    | `[]`         | No        | No
+`MJ`   | Mapjoin         | `""`         | No        | No
+`MM`   | Mapmap          | `[]`         | No        | No
+`MP`   | Mappairs        | `[]`         | No        | No
+`MS`   | Mapsum          | `0`          | No        | No
+`MU`   | Mapunpack       | `[]`         | No        | No
+`MF`   | Mapflatten      | `[]`         | No        | No
+`FI`   | Filter          | `[]`         | No        | No
+`FN`   | Filternot       | `[]`         | No        | No
+`FE`   | Filterenumerate | `[]`         | No        | No
+`FU`   | Filterunpack    | `[]`         | No        | No
+`SK`   | Sortkeyed       | `[]`         | No        | No
+`V`    | Eval            | None         | No        | No
 
 ### Ternary (right-associative)
 
@@ -111,13 +116,6 @@ Symbol | Name     | Fold default | Itemwise? | In lambda?
 ------ | -------- | ------------ | --------- | ----------
 `MR`   | Mapregex | `[]`         | No        | No
 `MZ`   | Mapzip   | `[]`         | No        | No
-
-### Unary
-
-Symbol | Name   | Itemwise? | In lambda?
------- | ------ | --------- | ----------
-`V`    | Eval   | No        | No
-`FI`   | Filter | No        | No
 
 ## If-then-else (for lambdas)
 
@@ -202,16 +200,21 @@ Symbol | Name         | Fold default | Itemwise? | In lambda?
 
 ### Unary
 
-Symbol | Name         | Itemwise? | In lambda?
------- | ------------ | --------- | ----------
-`MX`   | Max          | No        | Yes
-`MN`   | Min          | No        | Yes
-`RC`   | Randchoice   | No        | Yes
-`SN`   | Sortnum      | No        | Yes
-`SS`   | Sortstring   | No        | Yes
-`UQ`   | Unique       | No        | Yes
-`EN`   | Enumerate    | No        | Yes
-`PM`   | Permutations | No        | Yes
+Symbol   | Name            	 | Itemwise? | In lambda?
+-------- | ---------------- | --------- | ----------
+`M`/`MX` | Max              | No        | Yes
+`N`/`MN` | Min              | No        | Yes
+`RC`     | Randchoice       | No        | Yes
+`SH`     | Shuffle          | No        | Yes
+`SN`     | Sortnum          | No        | Yes
+`SS`     | Sortstring       | No        | Yes
+`DN`     | Descendingnum    | No        | Yes
+`DS`     | Descendingstring | No        | Yes
+`UQ`     | Unique           | No        | Yes
+`EN`     | Enumerate        | No        | Yes
+`PM`     | Permutations     | No        | Yes
+`FL`     | Flatten          | No        | Yes
+`FA`     | Flattenall       | No        | Yes
 
 ## Append, push, and pop
 
@@ -244,11 +247,13 @@ Symbol | Name             | Fold default | Itemwise? | In lambda?
 `@?`   | Find             | None         | No        | Yes
 `@*`   | Findall          | `[]`         | No        | Yes
 `<>`   | Group            | `[]`         | No        | <br> Yes
+`CH`   | Chop             | `[]`         | No        | <br> Yes
 `J`    | Join             | `""`         | No        | Yes
 `JW`   | Joinwrap         | None         | No        | Yes
 `RL`   | Repeatlist       | `[]`         | No        | Yes
 `Z`    | Zip              | `[]`         | No        | Yes
 `ZD`   | Zipdefault       | `[]`         | No        | Yes
+`ZJ`   | Zipjoin          | `[]`         | No        | Yes
 `H`    | Prefix           | `[]`         | No        | Yes
 `S`    | Suffix           | `[]`         | No        | Yes
 `WV`   | Weave            | `[]`         | No        | Yes
@@ -258,6 +263,7 @@ Symbol | Name             | Fold default | Itemwise? | In lambda?
 `ZG`   | Zerogrid         | None         | Both      | Yes
 `OG`   | Onegrid          | None         | Both      | Yes
 `TD`   | Todigits         | `[]`         | No        | Yes
+`FD`   | Fromdigits       | `[]`         | No        | Yes
 
 ### Ternary (left-associative)
 
@@ -272,6 +278,7 @@ Symbol   | Name             | Itemwise? | In lambda?
 -------- | ---------------- | --------- | ----------
 `^`      | Split            | Both      | Yes
 `<>`     | Group            | No        | Yes
+`CH`     | Chop             | No        | Yes
 `J`      | Join             | No        | Yes
 `R`/`RV` | Reverse          | No        | Yes
 `RF`     | Reflect          | No        | Yes
@@ -280,6 +287,7 @@ Symbol   | Name             | Itemwise? | In lambda?
 `QP`     | Quadpalindromize | No        | Yes
 `Z`      | Zip              | No        | Yes
 `ZD`     | Zipdefault       | No        | Yes
+`ZJ`     | Zipjoin          | No        | Yes
 `H`      | Prefix           | No        | Yes
 `S`      | Suffix           | No        | Yes
 `WV`     | Weave            | No        | Yes
@@ -404,6 +412,15 @@ Symbol | Name       | Fold default | Itemwise? | In lambda?
 Symbol | Name       | Itemwise? | In lambda?
 ------ | ---------- | --------- | ----------
 `BN`   | Bitwisenot | Both      | Yes
+`SI`   | Sine       | Both      | Yes
+`CO`   | Cosine     | Both      | Yes
+`TA`   | Tangent    | Both      | Yes
+`SE`   | Secant     | Both      | Yes
+`CS`   | Cosec      | Both      | Yes
+`CT`   | Cotan      | Both      | Yes
+`AT`   | Arctan     | Both      | Yes
+`RD`   | Radians    | Both      | Yes
+`DG`   | Degrees    | Both      | Yes
 
 ## Addition and subtraction
 
@@ -426,18 +443,24 @@ Symbol | Name   | Fold default | Itemwise? | In lambda?
 `%`    | Mod    | `0`          | Both      | Yes
 `//`   | Intdiv | `1`          | Both      | Yes
 
-## Unary arithmetic operators
+## High-precedence numeric operators
 
 ### Unary
 
-Symbol | Name   | Itemwise? | In lambda?
------- | ------ | --------- | ----------
-`+`    | Pos    | List      | Yes
-`-`    | Neg    | Both      | Yes
-`/`    | Invert | Both      | Yes
-`%`    | Mod2   | Both      | Yes
-
-## High-precedence numeric operators
+Symbol   | Name        | Itemwise? | In lambda?
+-------- | ----------- | --------- | ----------
+`+`      | Pos         | List      | Yes
+`-`      | Neg         | Both      | Yes
+`/`      | Invert      | Both      | Yes
+`%`      | Mod2        | Both      | Yes
+`E`/`**` | Pow         | Both      | Yes
+`EE`     | Poweroften  | Both      | Yes
+`RT`     | Sqrt        | Both      | Yes
+`SQ`     | Square      | Both      | Yes
+`HV`     | Halve       | Both      | Yes
+`DB`     | Double      | Both      | Yes
+`EX`     | Exponential | Both      | Yes
+`LN`     | Naturallog  | Both      | Yes
 
 ### Binary (right-associative)
 
@@ -446,28 +469,6 @@ Symbol   | Name       | Fold default | Itemwise? | In lambda?
 `E`/`**` | Pow        | `1`          | Both      | Yes
 `EE`     | Poweroften | `1`          | Both      | Yes
 `RT`     | Root       | `1`          | Both      | Yes
-
-### Unary
-
-Symbol   | Name        | Itemwise? | In lambda?
--------- | ----------- | --------- | ----------
-`E`/`**` | Pow         | Both      | Yes
-`EE`     | Poweroften  | Both      | Yes
-`RT`     | Sqrt        | Both      | Yes
-`SQ`     | Square      | Both      | Yes
-`HV`     | Halve       | Both      | Yes
-`DB`     | Double      | Both      | Yes
-`SI`     | Sine        | Both      | Yes
-`CO`     | Cosine      | Both      | Yes
-`TA`     | Tangent     | Both      | Yes
-`SE`     | Secant      | Both      | Yes
-`CS`     | Cosec       | Both      | Yes
-`CT`     | Cotan       | Both      | Yes
-`AT`     | Arctan      | Both      | Yes
-`RD`     | Radians     | Both      | Yes
-`DG`     | Degrees     | Both      | Yes
-`EX`     | Exponential | Both      | Yes
-`LN`     | Naturallog  | Both      | Yes
 
 ## Very high-precedence operators
 

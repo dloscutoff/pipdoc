@@ -23,6 +23,7 @@ Tokens in Pip can be any of the following:
  - Uppercase identifier (one or two uppercase letters which are not an operator)
  - Underscore (identity function; see below)
  - $ identifier (`$` followed by one of several symbols, or `$` followed by a run of lowercase letters, numbers, and underscores starting with a letter)
+ - \ identifier (<code>\</code> followed by a lowercase letter `a` through `g`)
  - Delimiters (parens, square braces, curly braces, semicolon)
 
 ### Parsing
@@ -77,7 +78,7 @@ Boolean expressions return `0` and `1`. The values `0` (and variants like `0.0`)
 
 Many operators, including arithmetic and most string operators, function memberwise on ranges and lists, similar to array-programming languages like APL. For example, `[1 2 3]+[6 5 4]` is `[7 7 7]`, and `"Hello".1,3` is `["Hello1" "Hello2"]`.
 
-Most operators can be used to construct lambda expressions from the identity function `_`. For instance, `3*_+1` is a function equivalent to `{3*a+1}`. This does not work with certain operators, particularly logic operators and operators that otherwise take functions as operands (such as `M` or `R`).
+Most operators can be used to construct lambda expressions from the identity function `_`. For instance, `3*_+1` is a function equivalent to `{3*a+1}`. This does not work with certain operators, particularly logic operators and operators that otherwise take functions as operands (such as Map or Replace).
 
 ---
 

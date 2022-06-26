@@ -143,6 +143,10 @@ The following operators change the way other operators are used, when applied on
 
 <code>CGa</code> Coordinate grid of `a` rows by `a` columns (`[0 0]` to `[a a]`)
 
+<code>aCHb</code> Chop iterable `a` into `b` pieces of roughly equal length
+
+<code>CHa</code> Chop iterable `a` into 2 pieces of roughly equal length
+
 <code>aCMb</code> Numeric comparison (-1 if `a < b`, 0 if `a = b`, 1 if `a > b`)
 
 <code>COa</code> Cosine
@@ -165,6 +169,10 @@ The following operators change the way other operators are used, when applied on
 
 <code>DQa</code> Dequeue item from back of iterable (modifying argument in-place)
 
+<code>DNa</code> Sort iterable in descending order using numeric comparison
+
+<code>DS</code> Sort iterable in descending order using string comparison
+
 <code id="pow">aEb</code> Exponentiation
 
 <code id="pow-of-2">Ea</code> Exponentiation with base 2
@@ -179,6 +187,8 @@ The following operators change the way other operators are used, when applied on
 
 <code>EYa</code> Identity matrix (abbreviation from Matlab's eye() function)
 
+<code>FAa</code> Flatten all levels of List/Range `a`, resulting in a flat List
+
 <code>aFBb</code> Convert number from given base to decimal integer
 
 <code>FBa</code> Convert number from binary to decimal integer
@@ -187,9 +197,19 @@ The following operators change the way other operators are used, when applied on
 
 <code>FDa</code> Convert iterable containing digits in binary to decimal integer
 
+<code>aFEb</code> Filter-enumerate: keep items from iterable `b` which return truthy results when function `a` is called with the index and the item as arguments
+
 <code>aFIb</code> Filter: keep items from iterable `b` which return truthy results when passed to function `a`
 
 <code>FIa</code> Unary filter: keep items from iterable `a` which are truthy
+
+<code>FLa</code> Flatten one level of List/Range `a` (equivalent to `$AL`)
+
+<code>aFNb</code> Filter negated: keep items from iterable `b` which return falsey results when passed to function `a`
+
+<code>FNa</code> Unary filter negated: keep items from iterable `a` which are falsey
+
+<code>aFUb</code> Filter-unpack: keep items from iterable `b` which return truthy results when function `a` is called with the item unpacked into zero or more function arguments
 
 <code>aGTb</code> String greater than
 
@@ -219,15 +239,19 @@ The following operators change the way other operators are used, when applied on
 
 <code>aMb</code> Map Block to iterable, returning List
 
+<code id="max">Ma</code> Maximum of iterable, using numeric comparison
+
 <code>aMCb</code> Map Block `a` to each x,y in `b`x`b` grid of coordinate pairs; if `b` is a two-element Range or List of Scalars, map to `b@0`x`b@1` grid
 
 <code>aMEb</code> Map Block `a` to index/value pairs for items in iterable, returning List
+
+<code>aMFb</code> Map Block `a` to iterable and flatten results by one level
 
 <code>aMJb</code> Map Block to iterable and join results into Scalar
 
 <code>aMMb</code> Map Block to each subitem of iterable, returning List of Lists
 
-<code>MNa</code> Min of iterable using numeric comparison
+<code>MNa</code> Alias for [unary `N`](#min)
 
 <code>aMPb</code> Map Block to consecutive pairs of items from iterable, returning List
 
@@ -237,11 +261,13 @@ The following operators change the way other operators are used, when applied on
 
 <code>aMUb</code> Map Block to iterable, unpacking each item as function arguments (like Python's `itertools.starmap`); returns List
 
-<code>MXa</code> Max of iterable using numeric comparison
+<code>MXa</code> Alias for [unary `M`](#max)
 
 <code>aMZbc</code> Map Block to two iterables, passing zipped pairs of elements as arguments; returns List
 
 <code id="in">aNb</code> In (returns count of occurrences or 0 if none)
+
+<code id="min">Na</code> Minimum of iterable, using numeric comparison
 
 <code>aNEb</code> String not equal
 
@@ -277,7 +303,7 @@ The following operators change the way other operators are used, when applied on
 
 <code>aRbc</code> Replace each occurrence in Scalar `a` of substring or Pattern `b` with replacement `c`
 
-<code id="#reverse">Ra</code> Reverse
+<code id="reverse">Ra</code> Reverse
 
 <code>aRAbc</code> Replace item in iterable `a` at index `b` with replacement `c`
 
@@ -314,6 +340,8 @@ The following operators change the way other operators are used, when applied on
 <code>SEa</code> Secant
 
 <code>SGa</code> Sign of number (-1, 0, or 1)
+
+<code>SHa</code> Shuffle: random permutation of iterable
 
 <code>SIa</code> Sine
 
@@ -379,11 +407,15 @@ The following operators change the way other operators are used, when applied on
 
 <code>aZDb</code> Zip a List of Lists together, filling missing values with default value `b`
 
-<code>ZDa</code> Zip a List of Lists together, filling missing values with nil
+<code>ZDa</code> Zip a List of Lists together, filling missing values with default value `""`
 
 <code>aZGb</code> Grid of zeros (`a` rows by `b` columns)
 
 <code>ZGa</code> Grid of zeros (`a` rows by `a` columns)
+
+<code>aZJb</code> Zip two iterables together, filling missing values with `" "`, and join each pair of values into a string
+
+<code>ZJa</code> Zip a List of iterables together, filling missing values with `" "`, and join each group of values into a string
 
 <code>\!a</code> Logical not (can be used in lambda expressions)
 

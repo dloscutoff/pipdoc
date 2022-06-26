@@ -17,6 +17,8 @@ Pip uses several command-line flags to control input and output options.
 
 `-i` Execute code read from stdin
 
+`-R` Run in [REPL mode](repl)
+
 When Pip is called without any of these flags, the default is stdin for interactive mode and file for non-interactive.
 
 ## Input interpretation

@@ -18,19 +18,19 @@ Note: unlike other lowercase letters, `j` is not a variable; it is reserved for 
 
 ## Local variables
 
-`a` First argument of the current function (at top level, first command-line argument)
+`a` First argument of the current function (at top level, first argument to the main program)
 
-`b` Second argument of the current function (at top level, second command-line argument)
+`b` Second argument of the current function (at top level, second argument to the main program)
 
-`c` Third argument of the current function (at top level, third command-line argument)
+`c` Third argument of the current function (at top level, third argument to the main program)
 
-`d` Fourth argument of the current function (at top level, fourth command-line argument)
+`d` Fourth argument of the current function (at top level, fourth argument to the main program)
 
-`e` Fifth argument of the current function (at top level, fifth command-line argument)
+`e` Fifth argument of the current function (at top level, fifth argument to the main program)
 
-`f` The current function (at top level, the full program as a function)
+`f` The current function (at top level, the main program as a function)
 
-`g` Full list of arguments of the current function (at top level, full list of command-line arguments)
+`g` Full list of arguments of the current function (at top level, full list of arguments to the main program)
 
 ## Global variables
 
@@ -73,6 +73,20 @@ Note: any sequence of two uppercase letters that isn't a command or an operator 
 `B` Block that returns its second argument (`{b}`)
 
 `G` Block that returns its argument list (`{g}`)
+
+`\a` First argument to the main program
+
+`\b` Second argument to the main program
+
+`\c` Third argument to the main program
+
+`\d` Fourth argument to the main program
+
+`\e` Fifth argument to the main program
+
+`\f` The main program as a function
+
+`\g` Full list of arguments to the main program
 
 `AZ` Uppercase alphabet A to Z
 
