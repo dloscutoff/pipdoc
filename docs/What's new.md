@@ -32,7 +32,6 @@ Certain comments are treated as REPL commands:
 
 - `;warnings` toggles display of warning messages (can also be invoked as `;warnings off` or `;warnings on`)
 - `;quit` quits the REPL (`;exit` also works)
-- `;exit` is identical to `;quit`
 - `;help` displays a help message
 
 See the [REPL mode](repl) page for a full description of REPL features.
