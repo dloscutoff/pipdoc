@@ -2,12 +2,12 @@
 layout: default
 title: Pip Classic
 permalink: pip-classic
-nav_order: 10
+nav_order: 12
 ---
 
 # Differences from Pip Classic
 
-The [2018-10-25 commit](https://github.com/dloscutoff/pip/releases/tag/v0.18) of Pip is known as Pip Classic. This is the version of Pip available at [Try It Online!](https://tio.run/#pip) If you're trying to run a Pip program on TIO and something isn't working the way it should, you might be using a language feature that isn't in Pip Classic. Here is a catalog of the differences between the versions and how to work around them.
+The [2018-10-25 commit](https://github.com/dloscutoff/pip/releases/tag/v0.18) of Pip is known as Pip Classic. This is the version of Pip available at [Try It Online!](https://tio.run/#pip) If you're trying to run a Pip program on TIO and something isn't working the way it should, you might be using a language feature that isn't in Pip Classic. Here is a catalog of the differences between Pip 1.0 and Pip Classic, plus some tips on how to work around them. (For features added since Pip 1.0, see the [What's New](whats-new) page.)
 
 Note: "lhs" = left-hand side argument of an operator and "rhs" = right-hand side argument (including the single argument of a unary operator).
 

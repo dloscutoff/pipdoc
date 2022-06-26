@@ -2,7 +2,7 @@
 layout: default
 title: Example Programs
 permalink: examples
-nav_order: 11
+nav_order: 13
 ---
 
 # Example programs
