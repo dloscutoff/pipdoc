@@ -82,7 +82,7 @@ Pip currently supports the following regex operations (with more in the works):
 
 Usage: `s~x`
 
-Returns the first match of Pattern `x` in Scalar `s`, or nil if no match was found. Can also be used as `x~s`.
+Returns the first match of Pattern `x` in Scalar `s`, or nil if no match was found. Can also be used as `x~s`. If `s` and `x` are both Scalars, convert `x` to a Pattern first.
 
 ### All matches: `@`
 
@@ -110,9 +110,9 @@ Usage: `xNs`
 
 ### Fullmatch: `~=`
 
-Usage: `x~=s`
+Usage: `s~=x`
 
-Returns `1` if Pattern `x` fully matches Scalar `s`, `0` otherwise. Can be chained with other comparison operators. Can also be used as `s~=x`.
+Returns `1` if Pattern `x` fully matches Scalar `s`, `0` otherwise. Can be chained with other comparison operators. Can also be used as `x~=s`. If `s` and `x` are both Scalars, convert `x` to a Pattern first.
 
 ### Replace: `R`
 
@@ -142,17 +142,17 @@ Split Scalar `s` on occurrences of Pattern `x`. If `x` contains capture groups, 
 
 Usage: `fMRxs`
 
-Find all matches of Pattern `x` in Scalar `s` and map function `f` to them. The arguments passed to the function are the entire match (parameter `a`) followed by capture groups (parameters `b` through `e`). Can also be used as `sMRxf` or `fMRsx`.
+Find all matches of Pattern `x` in Scalar `s` and map function `f` to them. The arguments passed to the function are the entire match (parameter `a`) followed by capture groups (parameters `b` through `e`). Operands can be given in any order. If `x` and `s` are both Scalars, convert `x` to a Pattern first.
 
 ### Loop: `LR`
 
 Usage: `LRxs{...}`
 
-The command version of `MR`: loops over all matches of Pattern `x` in Scalar `s`. Use regex special variables to access match information inside the loop. Can also be used as `LRsx{...}`.
+The command version of `MR`: loops over all matches of Pattern `x` in Scalar `s`. Use regex special variables to access match information inside the loop. Can also be used as `LRsx{...}`. If `x` and `s` are both Scalars, convert `x` to a Pattern first.
 
 ## Match variables
 
-The following regex match variables are set every time a match is made by most regex operations--most usefully, `MR`, `LR`, and `R`:
+The following regex match variables are set every time a match is made by most regex operations--most usefully, `MR`, `LR`, `~`, and `R`:
 
 - `$0`: entire match
 - `$1`: capture group 1 (and similarly for 2-9)

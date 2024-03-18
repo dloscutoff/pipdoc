@@ -237,33 +237,33 @@ The following operators change the way other operators are used, when applied on
 
 <code>LNa</code> Natural logarithm
 
-<code>aMb</code> Map Block to iterable, returning List
+<code>aMb</code> Map Block `a` to iterable `b`, returning List
 
 <code id="max">Ma</code> Maximum of iterable, using numeric comparison
 
 <code>aMCb</code> Map Block `a` to each x,y in `b`x`b` grid of coordinate pairs; if `b` is a two-element Range or List of Scalars, map to `b@0`x`b@1` grid
 
-<code>aMEb</code> Map Block `a` to index/value pairs for items in iterable, returning List
+<code>aMEb</code> Map Block `a` to index/value pairs for items in iterable `b`, returning List
 
-<code>aMFb</code> Map Block `a` to iterable and flatten results by one level
+<code>aMFb</code> Map Block `a` to iterable `b` and flatten results by one level
 
-<code>aMJb</code> Map Block to iterable and join results into Scalar
+<code>aMJb</code> Map Block `a` to iterable `b` and join results into Scalar
 
-<code>aMMb</code> Map Block to each subitem of iterable, returning List of Lists
+<code>aMMb</code> Map Block `a` to each subitem of iterable `b`, returning List of Lists
 
 <code>MNa</code> Alias for [unary `N`](#min)
 
-<code>aMPb</code> Map Block to consecutive pairs of items from iterable, returning List
+<code>aMPb</code> Map Block `a` to consecutive pairs of items from iterable `b`, returning List
 
-<code>aMRbc</code> Map Block to each match of regex b in Scalar c
+<code>aMRbc</code> Map Block `a` to each regex match of Pattern `b` in Scalar `c` (operands are rearrangeable)
 
-<code>aMSb</code> Map Block to iterable and sum results
+<code>aMSb</code> Map Block `a` to iterable `b` and sum results
 
-<code>aMUb</code> Map Block to iterable, unpacking each item as function arguments (like Python's `itertools.starmap`); returns List
+<code>aMUb</code> Map Block `a` to iterable `b`, unpacking each item as function arguments (like Python's `itertools.starmap`); returns List
 
 <code>MXa</code> Alias for [unary `M`](#max)
 
-<code>aMZbc</code> Map Block to two iterables, passing zipped pairs of elements as arguments; returns List
+<code>aMZbc</code> Map Block `a` to two iterables, passing zipped pairs of elements as arguments; returns List
 
 <code id="in">aNb</code> In (returns count of occurrences or 0 if none)
 
@@ -445,6 +445,6 @@ The following operators change the way other operators are used, when applied on
 
 <code>||a</code> Strip whitespace from `a`
 
-<code>a~b</code> Find first match of Pattern `a` in Scalar `b` (reversible)
+<code>a~b</code> Find first regex match of `b` in Scalar `a` (reversible)
 
-<code>a~=b</code> Test if Pattern `a` fully matches Scalar `b` (reversible)
+<code>a~=b</code> Test if Pattern `b` fully matches Scalar `a` (reversible)
