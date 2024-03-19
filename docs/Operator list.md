@@ -13,7 +13,7 @@ Operators are listed in ASCII order. See also the [operator precedence chart](pr
 
 The following operators change the way other operators are used, when applied on them.
 
-`$` Fold: occurs before a binary operator; the resulting compound operator is unary, with the same precedence as the original binary operator
+`$` Fold, `\$` Scan: occur before a binary operator; the resulting compound operator is unary, with the same precedence as the original binary operator
 
 `*` Map: occurs after a unary operator; arity and precedence remain the same
 
@@ -95,6 +95,10 @@ The following operators change the way other operators are used, when applied on
 
 <code>a>=b</code> Numeric greater than or equal
 
+<code>a>|b</code> Round `a` up to smallest multiple of `b` that is >= `a`
+
+<code>>|a</code> Round `a` up to smallest integer that is >= `a` (ceil)
+
 <code>a?bc</code> Ternary If operator (short-circuiting)
 
 <code>a@b</code> Get item/slice at index
@@ -128,6 +132,8 @@ The following operators change the way other operators are used, when applied on
 <code>ATa</code> Arctangent
 
 <code>aBAb</code> Bitwise and
+
+<code>BLa</code> Bitlength
 
 <code>aBNb</code> Bitwise not
 
@@ -167,11 +173,13 @@ The following operators change the way other operators are used, when applied on
 
 <code>DGa</code> Convert radians to degrees
 
+<code>aDKb</code> Sort iterable `b` in descending order using Block `a` as key function
+
 <code>DQa</code> Dequeue item from back of iterable (modifying argument in-place)
 
 <code>DNa</code> Sort iterable in descending order using numeric comparison
 
-<code>DS</code> Sort iterable in descending order using string comparison
+<code>DSa</code> Sort iterable in descending order using string comparison
 
 <code id="pow">aEb</code> Exponentiation
 
@@ -203,6 +211,10 @@ The following operators change the way other operators are used, when applied on
 
 <code>FIa</code> Unary filter: keep items from iterable `a` which are truthy
 
+<code>aFJb</code> Filter iterable `b` by Block `a` and join results into Scalar
+
+<code>FJa</code> Keep items from iterable `a` which are truthy and join results into Scalar
+
 <code>FLa</code> Flatten one level of List/Range `a` (equivalent to `$AL`)
 
 <code>aFNb</code> Filter negated: keep items from iterable `b` which return falsey results when passed to function `a`
@@ -210,6 +222,10 @@ The following operators change the way other operators are used, when applied on
 <code>FNa</code> Unary filter negated: keep items from iterable `a` which are falsey
 
 <code>aFUb</code> Filter-unpack: keep items from iterable `b` which return truthy results when function `a` is called with the item unpacked into zero or more function arguments
+
+<code>aFXb</code> Filter indexes: List of indexes into iterable `b` which return truthy results when function `a` is called with the index and the item as arguments
+
+<code>FXa</code> Unary filter indexes: List of indexes of truthy items in iterable `a`
 
 <code>aGTb</code> String greater than
 
@@ -219,7 +235,11 @@ The following operators change the way other operators are used, when applied on
 
 <code>Ha</code> Get prefix of `a` containing all but the last element of `a`
 
-<code>HVa</code> Halve: `a` integer-divided by 2
+<code>HUa</code> Halve up: `a` divided by 2 and rounded up
+
+<code>HVa</code> Halve: `a` divided by 2 and rounded down
+
+<code>ICa</code> Convert to initial caps (capitalize the first character: `aB Cd` -> `Ab cd`)
 
 <code>aJb</code> Join iterable on separator
 
@@ -229,13 +249,17 @@ The following operators change the way other operators are used, when applied on
 
 <code>Ka</code> Apply Kleene star (repeat 0 or more times) to a Pattern
 
-<code>LCa</code> Convert to lowercase
+<code>LBa</code> Binary logarithm (log base 2)
 
-<code>aLTb</code> String less than
+<code>LCa</code> Convert to lowercase (`aB Cd` -> `ab cd`)
+
+<code>LDa</code> Decimal logarithm (log base 10)
 
 <code>aLEb</code> String less than or equal
 
-<code>LNa</code> Natural logarithm
+<code>LNa</code> Natural logarithm (log base e)
+
+<code>aLTb</code> String less than
 
 <code>aMb</code> Map Block `a` to iterable `b`, returning List
 
@@ -319,6 +343,10 @@ The following operators change the way other operators are used, when applied on
 
 <code>aRMb</code> Remove occurrences of `b` from `a` (removes items from List or Range; removes substrings or regex matches from Scalar)
 
+<code>aRNb</code> Round `a` to nearest multiple of `b`
+
+<code>RNa</code> Round `a` to nearest integer
+
 <code>RPa</code> Like Python's `repr`: convert to an unambiguous string representation (numeric Scalar becomes `123.45`; non-numeric Scalar becomes `"abc"`; Pattern becomes `` `abc` ``; Range becomes `(1,4)`; List becomes `[1;2;"three"]`; Nil becomes `()`)
 
 <code>aRRb</code> Random integer in range from `a` to `b`
@@ -330,6 +358,10 @@ The following operators change the way other operators are used, when applied on
 <code>RTa</code> Square root of `a`
 
 <code>RVa</code> Alias for [unary `R`](#reverse)
+
+<code>aRZb</code> Round `a` to next multiple of `b` closer to zero
+
+<code>RZa</code> Round `a` to next integer closer to zero (truncate)
 
 <code>aSb</code> Get suffix of `a` that is `b` elements long; with negative `b`, get suffix of length len(`a`)+`b`
 
@@ -345,7 +377,7 @@ The following operators change the way other operators are used, when applied on
 
 <code>SIa</code> Sine
 
-<code>aSKb</code> Sort iterable using Block as key function
+<code>aSKb</code> Sort iterable `b` using Block `a` as key function
 
 <code>SNa</code> Sort iterable in ascending order using numeric comparison
 
@@ -361,6 +393,8 @@ The following operators change the way other operators are used, when applied on
 
 <code>TBa</code> Convert decimal integer `a` to binary
 
+<code>TCa</code> Convert to title case (`aB Cd` -> `Ab Cd`)
+
 <code>aTDb</code> Convert decimal integer `a` to list of digits in base `b`
 
 <code>TDa</code> Convert decimal integer `a` to list of digits in binary
@@ -373,7 +407,7 @@ The following operators change the way other operators are used, when applied on
 
 <code id="inc">Ua</code> Increment (modifying argument in-place)
 
-<code>UCa</code> Convert to UPPERCASE
+<code>UCa</code> Convert to uppercase (`aB Cd` -> `AB CD`)
 
 <code>UQa</code> Keep only unique values from iterable
 
@@ -436,6 +470,10 @@ The following operators change the way other operators are used, when applied on
 <code>a^@b</code> Split iterable `a` at index or List of indices `b`
 
 <code>a|b</code> Logical or (short-circuiting)
+
+<code>a|&lt;b</code> Round `a` down to largest multiple of `b` that is &lt;= `a`
+
+<code>|&lt;a</code> Round `a` down to largest integer that is &lt;= `a` (floor)
 
 <code>a|>b</code> Strip characters in `b` from left of `a`
 

@@ -83,12 +83,15 @@ Symbol | Name     | Fold default | Itemwise? | In lambda?
 
 ### Unary
 
-Symbol | Name      | Itemwise? | In lambda?
------- | --------- | --------- | ----------
-`V`    | Eval      | No        | No
-`FI`   | Filter    | No        | No
-`FN`   | Filternot | No        | No
-`RE`   | Recurse   | No        | No
+Symbol | Name          | Itemwise? | In lambda?
+------ | ------------- | --------- | ----------
+`V`    | Eval          | No        | No
+`FI`   | Filter        | No        | No
+`FN`   | Filternot     | No        | No
+`FU`   | Filterunpack  | No        | No
+`FX`   | Filterindexes | No        | No
+`FJ`   | Filterjoin    | No        | No
+`RE`   | Recurse       | No        | No
 
 ### Binary (right-associative)
 
@@ -107,7 +110,10 @@ Symbol | Name            | Fold default | Itemwise? | In lambda?
 `FN`   | Filternot       | `[]`         | No        | No
 `FE`   | Filterenumerate | `[]`         | No        | No
 `FU`   | Filterunpack    | `[]`         | No        | No
+`FX`   | Filterindexes   | `[]`         | No        | No
+`FJ`   | Filterjoin      | `[]`         | No        | No
 `SK`   | Sortkeyed       | `[]`         | No        | No
+`DK`   | Descendingkeyed | `[]`         | No        | No
 `V`    | Eval            | None         | No        | No
 
 ### Ternary (right-associative)
@@ -365,15 +371,17 @@ Symbol | Name   | Fold default | Itemwise? | In lambda?
 
 ### Unary
 
-Symbol | Name      | Itemwise? | In lambda?
------- | --------- | --------- | ----------
-`||`   | Strip     | List      | Yes
-`|>`   | Lstrip    | List      | Yes
-`<|`   | Rstrip    | List      | Yes
-`TM`   | Trim      | List      | Yes
-`LC`   | Lowercase | List      | Yes
-`UC`   | Uppercase | List      | Yes
-`SC`   | Swapcase  | List      | Yes
+Symbol | Name        | Itemwise? | In lambda?
+------ | ----------- | --------- | ----------
+`||`   | Strip       | List      | Yes
+`|>`   | Lstrip      | List      | Yes
+`<|`   | Rstrip      | List      | Yes
+`TM`   | Trim        | List      | Yes
+`LC`   | Lowercase   | List      | Yes
+`UC`   | Uppercase   | List      | Yes
+`SC`   | Swapcase    | List      | Yes
+`TC`   | Titlecase   | List      | Yes
+`IC`   | Initialcaps | List      | Yes
 
 ## Range and to-base
 
@@ -399,28 +407,37 @@ Symbol | Name        | Itemwise? | In lambda?
 
 ### Binary (left-associative)
 
-Symbol | Name       | Fold default | Itemwise? | In lambda?
------- | ---------- | ------------ | --------- | ----------
-`BA`   | Bitwiseand | `-1`         | Both      | Yes
-`BO`   | Bitwiseor  | `0`          | Both      | Yes
-`BX`   | Bitwisexor | `0`          | Both      | Yes
-`AT`   | Arctan     | None         | Both      | Yes
-`CM`   | Numcmp     | `0`          | No        | Yes
+Symbol | Name         | Fold default | Itemwise? | In lambda?
+------ | ------------ | ------------ | --------- | ----------
+`BA`   | Bitwiseand   | `-1`         | Both      | Yes
+`BO`   | Bitwiseor    | `0`          | Both      | Yes
+`BX`   | Bitwisexor   | `0`          | Both      | Yes
+`AT`   | Arctan       | None         | Both      | Yes
+`CM`   | Numcmp       | `0`          | No        | Yes
+`|<`   | Floor        | `0`          | Both      | Yes
+`>|`   | Ceil         | `0`          | Both      | Yes
+`RN`   | Roundnearest | `0`          | Both      | Yes
+`RZ`   | Roundzero    | `0`          | Both      | Yes
 
 ### Unary
 
-Symbol | Name       | Itemwise? | In lambda?
------- | ---------- | --------- | ----------
-`BN`   | Bitwisenot | Both      | Yes
-`SI`   | Sine       | Both      | Yes
-`CO`   | Cosine     | Both      | Yes
-`TA`   | Tangent    | Both      | Yes
-`SE`   | Secant     | Both      | Yes
-`CS`   | Cosec      | Both      | Yes
-`CT`   | Cotan      | Both      | Yes
-`AT`   | Arctan     | Both      | Yes
-`RD`   | Radians    | Both      | Yes
-`DG`   | Degrees    | Both      | Yes
+Symbol | Name         | Itemwise? | In lambda?
+------ | ------------ | --------- | ----------
+`BN`   | Bitwisenot   | Both      | Yes
+`SI`   | Sine         | Both      | Yes
+`CO`   | Cosine       | Both      | Yes
+`TA`   | Tangent      | Both      | Yes
+`SE`   | Secant       | Both      | Yes
+`CS`   | Cosec        | Both      | Yes
+`CT`   | Cotan        | Both      | Yes
+`AT`   | Arctan       | Both      | Yes
+`RD`   | Radians      | Both      | Yes
+`DG`   | Degrees      | Both      | Yes
+`BL`   | Bitlength    | Both      | Yes
+`|<`   | Floor        | Both      | Yes
+`>|`   | Ceil         | Both      | Yes
+`RN`   | Roundnearest | Both      | Yes
+`RZ`   | Roundzero    | Both      | Yes
 
 ## Addition and subtraction
 
@@ -458,9 +475,12 @@ Symbol   | Name        | Itemwise? | In lambda?
 `RT`     | Sqrt        | Both      | Yes
 `SQ`     | Square      | Both      | Yes
 `HV`     | Halve       | Both      | Yes
+`HU`     | Halveup     | Both      | Yes
 `DB`     | Double      | Both      | Yes
 `EX`     | Exponential | Both      | Yes
 `LN`     | Naturallog  | Both      | Yes
+`LB`     | Binarylog   | Both      | Yes
+`LD`     | Decimallog  | Both      | Yes
 
 ### Binary (right-associative)
 

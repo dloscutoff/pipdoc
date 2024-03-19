@@ -9,6 +9,37 @@ nav_order: 11
 
 Release notes for each minor version of Pip after 1.0.
 
+
+## Pip 1.2 (released 2024-03-20)
+
+### Regex changes
+
+- Regex flags are no longer concatenated to the pattern text itself, thanks to a change in Python 3.11 that made this approach stop working. Instead, they are attached to the pattern object and indicated in its repr by unary operators (`A-,.`) before the pattern.
+- Regex flag operators now toggle their respective flags rather than simply adding them.
+- The default order of the arguments to `~` and `~=` is now string first, regex second. Both operators have reversible operands, but the order can make a difference because...
+- When both the string and regex arguments of `~`, `~=`, or `MR` are scalars, the regex argument is converted from a scalar to a pattern. This behavior matches the existing behavior of `LR`.
+
+### New meta-operator
+
+The scan meta-operator `\$` has been added. It works the same as fold `$`, but returns all the intermediate results as a list.
+
+### New operators
+
+- New filtering operators: `FJ` (FilterJoin) joins the filter result into a string; `FX` (FilterIndexes) passes two arguments to the filter function, an index and a value, and creates a list of *indices* that gave truthy results.
+- New sorting operator: `DK` (DescendingKeyed) sorts an iterable in descending order by the return values of a key function (compare `SK`).
+- New string operators: `TC` title-cases a string (capitalizing the first letter of every run of letters); `IC` initial-caps a string (capitalizing the first character).
+- Rounding operators: `|<` rounds a number down (floor); `>|` rounds a number up (ceil); `RN` rounds a number to the nearest integer; and `RZ` rounds a number toward zero (down for positive numbers, up for negative numbers). The binary versions take a second argument specifying the precision level: for example, `a>|5` rounds a number up to the next multiple of 5.
+- New logarithm operators: `LB` (BinaryLog) takes the log base 2; `LD` (DecimalLog) takes the log base 10.
+- `BL` (BitLength) returns the bit-length of a number: the number of bits in the binary representation of its absolute value.
+- `HU` (HalveUp) divides by 2 and rounds up (as compared to `HV`, which rounds down).
+- `FU` (FilterUnpack) now has a unary version.
+
+### Miscellaneous
+
+- Thanks to a series of tweaks to the parser, blocks now always have the correct repr instead of the old "raw parse tree wrapped in curly braces" repr. (This change was also backported to version 1.1.1.)
+- The `pip()` function in `pip.py` now raises a `FatalError` exception instead of calling `sys.exit(1)` and returns instead of calling `sys.exit(0)`, making things nicer for any third-party code that might want to call it.
+
+
 ## Pip 1.1 (released 2022-06-25)
 
 ### REPL mode

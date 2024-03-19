@@ -9,9 +9,9 @@ nav_order: 8
 
 Regex operations in Pip use the Pattern data type.
 
-Patterns are delimited by ``` ` ``` (backticks).
+Patterns are delimited by <code>`</code> (backticks).
 
-Backticks within the Pattern can be escaped using backslash, as can literal backslashes. Regexes are basically Python flavor with a few add-ons. Any legal Python regex is a legal Pip regex (as long as backticks and `&` are escaped) and will behave the same way.
+Backticks within the Pattern can be escaped using backslash, as can literal backslashes. Regexes are basically Python flavor with a few add-ons. Any legal Python regex is a legal Pip regex (as long as backticks and `&` are escaped) and will behave the same way. Global flags can be set on a Pip regex using unary prefix operators.
 
 ## Differences between Python and Pip
 
@@ -23,24 +23,37 @@ Backticks within the Pattern can be escaped using backslash, as can literal back
 
 Some common regexes are available as predefined [variables](vars):
 
-Variable | Value                     | Mnemonic
--------- | ------------------------- | ----------------
-`w`      | `\s+`                     | Whitespace
-`XA`     | `[A-Za-z]`                | regeX Alpha
-`XC`     | `[bcdfghjklmnpqrstvwxyz]` | regeX Consonant
-`XD`     | `\d`                      | regeX Digit
-`XI`     | `-?\d+`                   | regeX Integer
-`XL`     | `[a-z]`                   | regeX Lowercase
-`XN`     | `-?\d+(?:\.\d+)?`         | regeX Number
-`XU`     | `[A-Z]`                   | regeX Uppercase
-`XV`     | `[aeiou]`                 | regeX Vowel
-`XW`     | `\w`                      | regeX Word
-`XX`     | `.`                       | regeX anything
-`XY`     | `[aeiouy]`                | regeX vowel-or-Y
+Variable | Value                                    | Mnemonic
+-------- | ---------------------------------------- | ----------------
+`w`      | <code>`\s+`</code>                       | Whitespace
+`XA`     | <code>-`[a-z]`</code> (case-insensitive) | regeX Alpha
+`XC`     | <code>`[bcdfghjklmnpqrstvwxyz]`</code>   | regeX Consonant
+`XD`     | <code>`\d`</code>                        | regeX Digit
+`XI`     | <code>`-?\d+`</code>                     | regeX Integer
+`XL`     | <code>`[a-z]`</code>                     | regeX Lowercase
+`XN`     | <code>`-?\d+(?:\.\d+)?`</code>           | regeX Number
+`XU`     | <code>`[A-Z]`</code>                     | regeX Uppercase
+`XV`     | <code>`[aeiou]`</code>                   | regeX Vowel
+`XW`     | <code>`\w`</code>                        | regeX Word
+`XX`     | <code>`.`</code>                         | regeX anything
+`XY`     | <code>`[aeiouy]`</code>                  | regeX vowel-or-Y
 
 ## Regex-building operations
 
 The following operators can be used to build regexes:
+
+### Toggle flags: `A` `-` `,` `.`
+
+Usage: `-x`
+
+Four unary operators toggle regex flags on a Pattern:
+
+- `A` toggles the [ASCII-only](https://docs.python.org/3/library/re.html#re.ASCII) flag
+- `-` toggles the [ignore case](https://docs.python.org/3/library/re.html#re.IGNORECASE) flag
+- `,` toggles the [multiline](https://docs.python.org/3/library/re.html#re.MULTILINE) flag (`^` and `$` match at the beginning/end of each line, not just the beginning/end of the string)
+- `.` toggles the [dotall](https://docs.python.org/3/library/re.html#re.DOTALL) flag (`.` matches *any* character, including newlines)
+
+When a Pattern has a flag turned on, the Pattern's repr shows the corresponding operator: <code>A-`[a-z]`</code>, for example, is the regex `[a-z]` with the ASCII-only and case-insensitive flags.
 
 ### Concatenate/repeat (low level): `.` `X`
 
@@ -67,12 +80,6 @@ Usage: `Kx`
 `K` and `+` modify a Pattern with `*` or `+`, respectively. `C` wraps a pattern in a capturing group.
 
 NOTE: `K` also works on Scalars and Ranges, converting them to Patterns first. `+` and `C` only work on Patterns.
-
-### Set flags: `-` `.` `,` `A`
-
-Usage: `-x`
-
-The unary operators `-` `.` `,` `A` set the case-insensitive, dotall, multiline, and ASCII-only regex flags, respectively. See the Python 3 `re` docs for more information.
  
 ## Pip regex operations
 
