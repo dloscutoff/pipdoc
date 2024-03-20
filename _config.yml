@@ -34,12 +34,14 @@ plugins:
 # Documentation theme settings
 search_enabled: true
 aux_links:
-  "Pip on GitHub":
+  "GitHub":
     - "//github.com/dloscutoff/pip"
-  "Try It Online!":
+  "Run Pip at ATO":
+    - "https://ato.pxeger.com/run?L=pip
+  "or at DSO":
+    - "https://dso.surge.sh/#pip"
+  "or at TIO":
     - "https://tio.run/#pip"
-  "Replit":
-    - "https://replit.com/@dloscutoff/pip"
 aux_links_new_tab: true
 color_scheme: dark
 button: true
