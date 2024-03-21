@@ -34,14 +34,10 @@ remote_theme: pmarsceill/just-the-docs
 # Documentation theme settings
 search_enabled: true
 aux_links:
-  "GitHub":
-    - "//github.com/dloscutoff/pip"
-  "Run Pip at ATO":
-    - "https://ato.pxeger.com/run?L=pip
-  "or at DSO":
-    - "https://dso.surge.sh/#pip"
-  "or at TIO":
-    - "https://tio.run/#pip"
+  "GitHub": https://github.com/dloscutoff/pip
+  "Run Pip at ATO": https://ato.pxeger.com/run?L=pip
+  "or at DSO": https://dso.surge.sh/#pip
+  "or at TIO": https://tio.run/#pip
 aux_links_new_tab: true
 color_scheme: dark
 button: true
