@@ -28,8 +28,8 @@ github_username: dloscutoff
 remote_theme: pmarsceill/just-the-docs
 
 # Build settings
-plugins:
-  - jekyll-feed
+#plugins:
+#  - jekyll-feed
 
 # Documentation theme settings
 search_enabled: true
