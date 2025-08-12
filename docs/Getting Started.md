@@ -17,8 +17,6 @@ Another online interpreter that supports Pip is [Do Stuff Online](https://dso.su
 
 Pip is also available on [Try It Online](https://tio.run/#pip). (Thanks to [Dennis](https://github.com/DennisMitchell) for adding Pip support to TIO.) It works similarly to ATO, except that flags and arguments all go in the Arguments section; each flag or argument should be placed in a separate box, not JSON-formatted. Note, however, that the version of Pip on TIO is [Pip Classic](pip-classic), which doesn't have any of the updates and new features since 2018.
 
-An up-to-date version of Pip with a command-line interface is also hosted at [Replit](https://replit.com/@dloscutoff/pip). Clicking the run button will drop you into a [REPL session](repl). If you exit the REPL, you can run the interpreter using one of the invocation styles below.
-
 ## Command-line
 
 Pip is implemented in Python 3. The main interpreter is the `pip.py` file. It should run on most systems with Python 3 installed simply by invoking `pip.py` in the directory where you put it (for \*nix systems, use `./pip.py`).
