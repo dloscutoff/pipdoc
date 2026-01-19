@@ -62,7 +62,7 @@ Note: any sequence of two uppercase letters that isn't a command or an operator 
 
 `v` -1
 
-`w` Pattern matching one or more whitespace characters (<code>\`\s+\`</code>)
+`w` Pattern matching one or more whitespace characters (<code>`\s+`</code>)
 
 `x` Empty string
 
@@ -104,27 +104,27 @@ Note: any sequence of two uppercase letters that isn't a command or an operator 
 
 `VY` Lowercase vowels a to y
 
-`XA` Pattern matching one (ASCII) letter (<code>\`[A-Za-z]\`</code>)
+`XA` Pattern matching one (ASCII) letter (<code>`[A-Za-z]`</code>)
 
-`XC` Pattern matching one (lowercase ASCII) consonant (<code>\`[bcdfghjklmnpqrstvwxyz]\`</code>)
+`XC` Pattern matching one (lowercase ASCII) consonant (<code>`[bcdfghjklmnpqrstvwxyz]`</code>)
 
-`XD` Pattern matching one digit (<code>\`\d\`</code>)
+`XD` Pattern matching one digit (<code>`\d`</code>)
 
-`XI` Pattern matching an integer (<code>\`-?\d+\`</code>)
+`XI` Pattern matching an integer (<code>`-?\d+`</code>)
 
-`XL` Pattern matching one lowercase (ASCII) letter (<code>\`[a-z]\`</code>)
+`XL` Pattern matching one lowercase (ASCII) letter (<code>`[a-z]`</code>)
 
-`XN` Pattern matching an integer or decimal number (<code>\`-?\d+(?:\.\d+)?\`</code>)
+`XN` Pattern matching an integer or decimal number (<code>`-?\d+(?:\.\d+)?`</code>)
 
-`XU` Pattern matching one uppercase (ASCII) letter (<code>\`[A-Z]\`</code>)
+`XU` Pattern matching one uppercase (ASCII) letter (<code>`[A-Z]`</code>)
 
-`XV` Pattern matching one (lowercase ASCII) vowel, not including y (<code>\`[aeiou]\`</code>)
+`XV` Pattern matching one (lowercase ASCII) vowel, not including y (<code>`[aeiou]`</code>)
 
-`XW` Pattern matching one word character--letter, number, or underscore (<code>\`\w\`</code>)
+`XW` Pattern matching one word character--letter, number, or underscore (<code>`\w`</code>)
 
-`XX` Pattern matching any one character (<code>\`.\`</code>)
+`XX` Pattern matching any one character (<code>`.`</code>)
 
-`XY` Pattern matching one (lowercase ASCII) vowel, including y (<code>\`[aeiouy]\`</code>)
+`XY` Pattern matching one (lowercase ASCII) vowel, including y (<code>`[aeiouy]`</code>)
 
 ## Special variables
 
