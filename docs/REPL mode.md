@@ -47,7 +47,9 @@ Certain comments are treated as REPL commands:
 - `;warnings` toggles display of warning messages (can also be invoked as `;warnings off` or `;warnings on`). The initial setting depends on whether the REPL was invoked with the `-w` flag or not.
 - `;quit` quits the REPL.
 - `;exit` is identical to `;quit`.
-- `;help` displays a help message.
+- `;help` displays a help message. If followed by a space and an operator or global variable, it displays information about that operator or variable:
+    - Operator: arity, full name, precedence, and associativity. Operators with two arities list separate information for each arity.
+    - Global variable: initial value.
 
 These commands can be abbreviated to any prefix of the command. For example, `;q` works for `;quit`, and `;warn off` works for `;warnings off`.
 

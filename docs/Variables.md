@@ -14,8 +14,6 @@ There are four kinds of variables in Pip:
 - *Special variables* have side effects when accessed and/or assigned.
 - *Regex match variables* can be accessed normally, but they are automatically set each time a regex match is completed. See also the section on [regex in Pip](regex).
 
-Note: unlike other lowercase letters, `j` is not a variable; it is reserved for future use.
-
 ## Local variables
 
 `a` First argument of the current function (at top level, first argument to the main program)
@@ -41,6 +39,8 @@ Note: any sequence of two uppercase letters that isn't a command or an operator 
 `h` 100
 
 `i` 0
+
+`j` Nil
 
 `k` `", "`
 
@@ -104,11 +104,23 @@ Note: any sequence of two uppercase letters that isn't a command or an operator 
 
 `VY` Lowercase vowels a to y
 
-`XA` Pattern matching one (ASCII) letter (<code>`[A-Za-z]`</code>)
+`NB` Pattern matching a non-boundary (<code>`\B`</code>)
 
-`XC` Pattern matching one (lowercase ASCII) consonant (<code>`[bcdfghjklmnpqrstvwxyz]`</code>)
+`ND` Pattern matching one non-digit character (<code>`\D`</code>)
+
+`NS` Pattern matching one non-whitespace character (<code>`\S`</code>)
+
+`NW` Pattern matching one non-word character (<code>`\W`</code>)
+
+`XA` Pattern matching one (ASCII) letter, case-insensitive (<code>-`[a-z]`</code>)
+
+`XB` Pattern matching a word boundary (<code>`\b`</code>)
+
+`XC` Pattern matching one (ASCII) consonant, case-insensitive (<code>-`[bcdfghjklmnpqrstvwxyz]`</code>)
 
 `XD` Pattern matching one digit (<code>`\d`</code>)
+
+`XH` Pattern matching one hexadecimal digit, case-insensitive (<code>-`[0-9a-f]`</code>)
 
 `XI` Pattern matching an integer (<code>`-?\d+`</code>)
 
@@ -116,15 +128,17 @@ Note: any sequence of two uppercase letters that isn't a command or an operator 
 
 `XN` Pattern matching an integer or decimal number (<code>`-?\d+(?:\.\d+)?`</code>)
 
+`XS` Pattern matching one whitespace character (<code>`\s`</code>)
+
 `XU` Pattern matching one uppercase (ASCII) letter (<code>`[A-Z]`</code>)
 
-`XV` Pattern matching one (lowercase ASCII) vowel, not including y (<code>`[aeiou]`</code>)
+`XV` Pattern matching one (ASCII) vowel, not including y, case-insensitive (<code>-`[aeiou]`</code>)
 
 `XW` Pattern matching one word character--letter, number, or underscore (<code>`\w`</code>)
 
 `XX` Pattern matching any one character (<code>`.`</code>)
 
-`XY` Pattern matching one (lowercase ASCII) vowel, including y (<code>`[aeiouy]`</code>)
+`XY` Pattern matching one (ASCII) vowel, including y, case-insensitive (<code>-`[aeiouy]`</code>)
 
 ## Special variables
 

@@ -84,7 +84,7 @@ Most operators can be used to construct lambda expressions from the identity fun
 
 ## General Program Syntax
 
-Programs consist of a series of statements that are executed one by one. Bare expressions also count as statements. If the program ends with a bare expression, its value is automatically printed. To suppress printing, end the program with a statement or a nil expression. **Note**: `P` and `O` are operators, not statements, so code like `P"abcd"` at the end of the program will print twice. Use `"abcd"` instead.
+Programs consist of a series of statements that are executed one by one. Bare expressions also count as statements. If the program ends with a bare expression, its value is automatically printed. To suppress autoprinting, end the program with a semicolon. **Note**: `P` and `O` are operators, not statements, so code like `P"abcd"` at the end of the program will print twice. Use `"abcd"` instead.
 
 Expressions use infix operators; precedence/associativity may be coerced using parentheses. Basic operators are mostly chosen to coincide with familiar ones from C, Python, or Perl/PHP: `+-*/%!?` are as expected; comparison operators chain, as in Python; `.`, `X`, and string comparison operators are borrowed from Perl, `//` integer division from Python. A few potential "gotchas":
 

@@ -23,20 +23,29 @@ Backticks within the Pattern can be escaped using backslash, as can literal back
 
 Some common regexes are available as predefined [variables](vars):
 
-Variable | Value                                    | Mnemonic
--------- | ---------------------------------------- | ----------------
-`w`      | <code>`\s+`</code>                       | Whitespace
-`XA`     | <code>-`[a-z]`</code> (case-insensitive) | regeX Alpha
-`XC`     | <code>`[bcdfghjklmnpqrstvwxyz]`</code>   | regeX Consonant
-`XD`     | <code>`\d`</code>                        | regeX Digit
-`XI`     | <code>`-?\d+`</code>                     | regeX Integer
-`XL`     | <code>`[a-z]`</code>                     | regeX Lowercase
-`XN`     | <code>`-?\d+(?:\.\d+)?`</code>           | regeX Number
-`XU`     | <code>`[A-Z]`</code>                     | regeX Uppercase
-`XV`     | <code>`[aeiou]`</code>                   | regeX Vowel
-`XW`     | <code>`\w`</code>                        | regeX Word
-`XX`     | <code>`.`</code>                         | regeX anything
-`XY`     | <code>`[aeiouy]`</code>                  | regeX vowel-or-Y
+Variable | Value                                       | Mnemonic
+-------- | ------------------------------------------- | ----------------
+`w`      | <code>`\s+`</code>                          | Whitespace
+`XA`     | <code>-`[a-z]`</code>                       | regeX Alpha
+`XB`     | <code>`\b`</code>                           | regeX Boundary
+`XC`     | <code>-`[bcdfghjklmnpqrstvwxyz]`</code>     | regeX Consonant
+`XD`     | <code>`\d`</code>                           | regeX Digit
+`XH`     | <code>-`[0-9a-f]`</code>                    | regeX Hexdigit
+`XI`     | <code>`-?\d+`</code>                        | regeX Integer
+`XL`     | <code>`[a-z]`</code>                        | regeX Lowercase
+`XN`     | <code>`-?\d+(?:\.\d+)?`</code>              | regeX Number
+`XS`     | <code>`\s`</code>                           | regeX Space
+`XU`     | <code>`[A-Z]`</code>                        | regeX Uppercase
+`XV`     | <code>-`[aeiou]`</code>                     | regeX Vowel
+`XW`     | <code>`\w`</code>                           | regeX Word
+`XX`     | <code>`.`</code>                            | regeX anything
+`XY`     | <code>-`[aeiouy]`</code>                    | regeX vowel-or-Y
+`NB`     | <code>`\B`</code>                           | Not Boundary
+`ND`     | <code>`\D`</code>                           | Not Digit
+`NS`     | <code>`\S`</code>                           | Not Space
+`NW`     | <code>`\W`</code>                           | Not Word
+
+Regex values that have a leading `-` before the backtick are case-insensitive.
 
 ## Regex-building operations
 

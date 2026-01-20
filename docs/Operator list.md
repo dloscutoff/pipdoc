@@ -173,7 +173,7 @@ The following operators change the way other operators are used, when applied on
 
 <code>DGa</code> Convert radians to degrees
 
-<code>aDKb</code> Sort iterable `b` in descending order using Block `a` as key function
+<code>aDKb</code> Sort iterable `b` in descending order using Block `a` as a key function
 
 <code>DQa</code> Dequeue item from back of iterable (modifying argument in-place)
 
@@ -207,6 +207,12 @@ The following operators change the way other operators are used, when applied on
 
 <code>aFEb</code> Filter-enumerate: keep items from iterable `b` which return truthy results when function `a` is called with the index and the item as arguments
 
+<code>aFFb</code> Filter iterable `b` by Block `a` and flatten results by one level
+
+<code>FFa</code> Keep items from iterable `a` which are truthy and flatten results by one level
+
+<code>FHa</code> Convert number from hexadecimal to decimal integer
+
 <code>aFIb</code> Filter: keep items from iterable `b` which return truthy results when passed to function `a`
 
 <code>FIa</code> Unary filter: keep items from iterable `a` which are truthy
@@ -220,6 +226,10 @@ The following operators change the way other operators are used, when applied on
 <code>aFNb</code> Filter negated: keep items from iterable `b` which return falsey results when passed to function `a`
 
 <code>FNa</code> Unary filter negated: keep items from iterable `a` which are falsey
+
+<code>aFQb</code> Filter iterable `b` by Block `a` and uniquify results
+
+<code>FQa</code> Keep items from iterable `a` which are truthy and uniquify results
 
 <code>aFUb</code> Filter-unpack: keep items from iterable `b` which return truthy results when function `a` is called with the item unpacked into zero or more function arguments
 
@@ -273,11 +283,15 @@ The following operators change the way other operators are used, when applied on
 
 <code>aMJb</code> Map Block `a` to iterable `b` and join results into Scalar
 
+<code>aMKb</code> Maximum of iterable `b`, using Block `a` as a key function
+
 <code>aMMb</code> Map Block `a` to each subitem of iterable `b`, returning List of Lists
 
 <code>MNa</code> Alias for [unary `N`](#min)
 
 <code>aMPb</code> Map Block `a` to consecutive pairs of items from iterable `b`, returning List
+
+<code>aMQb</code> Map Block `a` to iterable `b` and uniquify results
 
 <code>aMRbc</code> Map Block `a` to each regex match of Pattern `b` in Scalar `c` (operands are rearrangeable)
 
@@ -296,6 +310,8 @@ The following operators change the way other operators are used, when applied on
 <code>aNEb</code> String not equal
 
 <code>aNIb</code> Not in (returns truth value 0 or 1)
+
+<code>aNKb</code> Minimum of iterable `b`, using Block `a` as a key function
 
 <code>Oa</code> Output value and pass through unchanged (same as `P` but without trailing newline)
 
@@ -377,7 +393,7 @@ The following operators change the way other operators are used, when applied on
 
 <code>SIa</code> Sine
 
-<code>aSKb</code> Sort iterable `b` using Block `a` as key function
+<code>aSKb</code> Sort iterable `b` using Block `a` as a key function
 
 <code>SNa</code> Sort iterable in ascending order using numeric comparison
 
@@ -398,6 +414,8 @@ The following operators change the way other operators are used, when applied on
 <code>aTDb</code> Convert decimal integer `a` to list of digits in base `b`
 
 <code>TDa</code> Convert decimal integer `a` to list of digits in binary
+
+<code>THa</code> Convert decimal integer `a` to hexadecimal
 
 <code>aTMb</code> Trim Scalar `a` by `b` characters from front and end (Scalar `b` trims same amount on both sides; Range `b` trims different amounts)
 

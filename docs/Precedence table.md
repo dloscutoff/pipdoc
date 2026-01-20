@@ -91,6 +91,8 @@ Symbol | Name          | Itemwise? | In lambda?
 `FU`   | FilterUnpack  | No        | No
 `FX`   | FilterIndexes | No        | No
 `FJ`   | FilterJoin    | No        | No
+`FF`   | FilterFlatten | No        | No
+`FQ`   | FilterUnique  | No        | No
 `RE`   | Recurse       | No        | No
 
 ### Binary (right-associative)
@@ -106,14 +108,19 @@ Symbol | Name            | Fold default | Itemwise? | In lambda?
 `MS`   | MapSum          | `0`          | No        | No
 `MU`   | MapUnpack       | `[]`         | No        | No
 `MF`   | MapFlatten      | `[]`         | No        | No
+`MQ`   | MapUnique       | `[]`         | No        | No
 `FI`   | Filter          | `[]`         | No        | No
 `FN`   | FilterNot       | `[]`         | No        | No
 `FE`   | FilterEnumerate | `[]`         | No        | No
 `FU`   | FilterUnpack    | `[]`         | No        | No
 `FX`   | FilterIndexes   | `[]`         | No        | No
 `FJ`   | FilterJoin      | `[]`         | No        | No
+`FF`   | FilterFlatten   | `[]`         | No        | No
+`FQ`   | FilterUnique    | `[]`         | No        | No
 `SK`   | SortKeyed       | `[]`         | No        | No
 `DK`   | DescendingKeyed | `[]`         | No        | No
+`MK`   | MaxKeyed        | `[]`         | No        | No
+`NK`   | MinKeyed        | `[]`         | No        | No
 `V`    | Eval            | None         | No        | No
 
 ### Ternary (right-associative)
@@ -402,6 +409,7 @@ Symbol | Name        | Itemwise? | In lambda?
 `\,`   | InclRangeTo | Both      | Yes
 `RR`   | RandRangeTo | Both      | Yes
 `TB`   | ToBase      | Both      | Yes
+`TH`   | ToHex       | Both      | Yes
 
 ## Low-precedence numeric operators
 
@@ -510,6 +518,7 @@ Symbol | Name     | Itemwise? | In lambda?
 `AB`   | Abs      | Both      | Yes
 `SG`   | Sign     | Both      | Yes
 `FB`   | FromBase | Both      | Yes
+`FH`   | FromHex  | Both      | Yes
 
 ## Highest-precedence operators
 

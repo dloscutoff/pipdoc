@@ -10,6 +10,47 @@ nav_order: 11
 Release notes for each minor version of Pip after 1.0.
 
 
+## Pip 1.3 (released 2026-01-19)
+
+### Loop counter variables
+
+Loops (`F`, `W`, `T`, `L`, and `LR`) now automatically set a local variable to their current iteration count. The outermost loop in a local scope uses `e` as its counter variable; loops nested at deeper levels use `d`, then `c`, and so on. The iteration count is 0-based. After the loop, the value of the counter variable equals the total number of times the loop ran.
+
+These local variables are also still used for program/function arguments. When a loop begins, it overwrites any existing value in its counter variable. This should almost never cause a problem, since functions seldom use more than two arguments and loops are seldom nested more than two deep.
+
+### Index arguments from functional operators
+
+Functional operators that traditionally passed one argument to their function (such as `M`, `FI`, and `SK`) now pass an extra argument representing the current index in the iterable. (This means that `{[ab]}Mg` is now equivalent to `{[ba]}MEg`.) Operators affected are `M`, `MF`, `MJ`, `MM`, `MQ`, `MS`, `FI`, `FF`, `FJ`, `FN`, `FQ`, `SK`, `DK`, `MK`, and `NK`. In the case of `MM`, two extra arguments are passed, representing the index in the outer map (`b`) and the inner map (`c`).
+
+Existing code should be unaffected, since the functions passed to these operators would previously have used their first argument and ignored the rest.
+
+### New operators
+
+- New mapping operator: `MQ` (MapUnique) uniquifies the mapping result.
+- New filtering operators: `FF` (FilterFlatten) flattens the filter result by one level; `FQ` (FilterUnique) uniquifies the filter result.
+- `MK` (MaxKeyed) finds the maximum value in an iterable by a key function (compare `DK`).
+- `NK` (MinKeyed) finds the minimum value in an iterable by a key function (compare `SK`).
+- New base-conversion operators: `TH` (ToHex) converts a number to hexadecimal; `FH` (FromHex) converts from hexadecimal.
+
+### New regex variables
+
+- `XB` matches word boundaries (`\b`)
+- `XH` matches hexadecimal digits (`[0-9a-f]`, case-insensitive)
+- `XS` matches whitespace characters (`\s`)
+- `NB` matches non-boundaries (`\B`)
+- `ND` matches non-digit characters (`\D`)
+- `NS` matches non-space characters (`\S`)
+- `NW` matches non-word characters (`\W`)
+
+### Miscellaneous
+
+- Ending a program with a semicolon suppresses autoprinting of the final expression.
+- Regex variables `XC` (consonants), `XV` (vowels), and `XY` (vowels including Y) have been changed to case-insensitive.
+- `TB` and `FB` now handle bases up to 62.
+- `j` is now a regular variable. (Since Pip 1.0, it had been reserved for possible future syntax, but that idea has been abandoned.) For now, its initial value is nil.
+- In REPL mode, typing `;help ` followed by an operator or a global variable prints some information about that operator or variable.
+
+
 ## Pip 1.2 (released 2024-03-20)
 
 ### Regex changes
